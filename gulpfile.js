@@ -35,7 +35,7 @@ const devFiles = [
 function jsTask() {
 	return src(jsFiles)
 		.pipe(sourcemaps.init())
-		.pipe(concat('garden.min.js'))
+		.pipe(concat('game.min.js'))
 		.pipe(uglify())
 		.pipe(sourcemaps.write('./src_maps'))
 		.pipe(dest('./build'))
