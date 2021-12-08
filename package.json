@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "boiler plate for my dumb",
   "scripts": {
-    "boiler": "npm i && npm i file:lines && npm i file:doodoo && git submodule add https://github.com/owenroberts/lines && git submodule add https://github.com/owenroberts/doodoo && git submodule update --init --recursive"
+    "boiler": "git init && git submodule add https://github.com/owenroberts/lines.git && git submodule add https://github.com/owenroberts/doodoo.git && git submodule update --init --recursive && npm i && npm i file:lines && npm i file:doodoo"
   },
   "devDependencies": {
     "babelify": "^10.0.0",
