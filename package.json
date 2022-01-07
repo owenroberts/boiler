@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "boiler plate for my dumb",
   "scripts": {
-    "boiler": "git init && git submodule add https://github.com/owenroberts/lines.git && git submodule add https://github.com/owenroberts/doodoo.git && git submodule update --init --recursive && npm i && npm i file:lines && npm i file:doodoo"
+    "boiler": "git init && git submodule add https://github.com/owenroberts/lines.git && git submodule update --init --recursive && npm i && npm i file:lines",
+    "doodoo": "git submodule add https://github.com/owenroberts/doodoo.git && npm i file:doodoo"
   },
   "devDependencies": {
     "babelify": "^10.0.0",
@@ -13,6 +14,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-if": "^3.0.0",
     "gulp-notify": "^4.0.0",
+    "gulp-npm-dist": "^1.0.3",
     "gulp-plumber": "^1.2.1",
     "gulp-replace": "^1.1.3",
     "gulp-sourcemaps": "^3.0.0",

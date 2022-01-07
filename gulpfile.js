@@ -8,6 +8,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify-es').default;
+const npmDist = require('gulp-npm-dist');
+
 
 function browserSyncTask() {
 	return browserSync.init({
@@ -45,6 +47,11 @@ function jsTask() {
 		.pipe(browserSync.stream());
 }
 
+function libTask() {
+	return src(npmDist(), { base: './node_modules' })
+		.pipe(dest('./build/lib'));
+}
+
 // this seems to work but its slow as fuck
 function doodooCopy() {
 	return src(['./doodoo/build/**/*'])
@@ -79,8 +86,9 @@ function cacheBustTask(){
 }
 
 task('jsTask', jsTask);
+// task('build', series(lines.exportTask, linesCopy, jsTask));
 task('build', series(doodoo.exportTask, lines.exportTask, doodooCopy, linesCopy, jsTask));
-task('watch', series('build', cacheBustTask, browserSyncTask, watchTask));
+task('watch', parallel('build', cacheBustTask, browserSyncTask, watchTask));
 task('default', series('watch'));
 
 
