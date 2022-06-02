@@ -1,6 +1,0 @@
-[submodule "lines"]
-	path = lines
-	url = https://github.com/owenroberts/lines.git
-[submodule "doodoo"]
-	path = doodoo
-	url = https://github.com/owenroberts/doodoo.git
