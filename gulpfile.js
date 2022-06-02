@@ -9,10 +9,6 @@ const browserSync = require('browser-sync').create();
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify-es').default;
 const npmDist = require('gulp-npm-dist');
-<<<<<<< HEAD
-
-=======
->>>>>>> 79055dd (remove submodules from boiler)
 
 function browserSyncTask() {
 	return browserSync.init({
@@ -41,10 +37,7 @@ function libTask() {
 		.pipe(dest('./build/lib'));
 }
 
-<<<<<<< HEAD
-// this seems to work but its slow as fuck
-=======
->>>>>>> 79055dd (remove submodules from boiler)
+
 function doodooCopy() {
 	if (!doodoo) return;
 	return src('./doodoo/build/**/*')
@@ -82,13 +75,7 @@ function cacheBustTask(){
 		.pipe(dest('.'));
 }
 
-<<<<<<< HEAD
-task('jsTask', jsTask);
-// task('build', series(lines.exportTask, linesCopy, jsTask));
-task('build', series(doodoo.exportTask, lines.exportTask, doodooCopy, linesCopy, jsTask));
-task('watch', parallel('build', cacheBustTask, browserSyncTask, watchTask));
-task('default', parallel('watch'));
-=======
+
 task('js', jsTask);
 task('watch', parallel(cacheBustTask, browserSyncTask, watchTask));
 task('default', parallel('watch'));
@@ -106,6 +93,3 @@ if (lines) {
 console.log(...libTasks)
 task('lib', series(...libTasks));
 task('build', series(...[...libTasks, jsTask]));
-
-
->>>>>>> 79055dd (remove submodules from boiler)
