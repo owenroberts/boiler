@@ -4,8 +4,8 @@
   "description": "boiler plate for my dumb",
   "scripts": {
     "init": "git init && npm i && npm run add-lines",
-    "add-doodoo": "git submodule add https://github.com/owenroberts/doodoo.git && git submodule update --init --recursive && (cd lines && npm i) && USE_DOODOO=true",
-    "add-lines": "git submodule add https://github.com/owenroberts/lines.git && git submodule update --init --recursive && (cd lines && npm i) && USE_LINES=true",
+    "add-doodoo": "git submodule add https://github.com/owenroberts/doodoo.git && git submodule update --init --recursive && (cd doodoo && npm i) && echo USE_DOODOO=true >> .env && npm i --save stats.js",
+    "add-lines": "git submodule add https://github.com/owenroberts/lines.git && git submodule update --init --recursive && (cd lines && npm i) && echo USE_LINES=true >> .env && npm i --save stats.js",
     "add-physics": "npm i --save matter-js"
   },
   "devDependencies": {

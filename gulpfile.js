@@ -1,9 +1,8 @@
 const { src, dest, watch, series, parallel, task } = require('gulp');
+require('dotenv').config()
 
 const doodoo = process.env.USE_DOODOO ? require('./doodoo/gulpfile') : null;
 const lines = process.env.USE_LINES ? require('./lines/gulpfile') : null;
-
-console.log(doodoo, lines);
 
 const replace = require('gulp-replace');
 const sourcemaps = require('gulp-sourcemaps');
@@ -38,7 +37,6 @@ function libTask() {
 	return src(npmDist(), { base: './node_modules' })
 		.pipe(dest('./build/lib'));
 }
-
 
 function doodooCopy() {
 	if (!doodoo) return;
@@ -77,21 +75,13 @@ function cacheBustTask(){
 		.pipe(dest('.'));
 }
 
-
 task('js', jsTask);
 task('watch', parallel(cacheBustTask, browserSyncTask, watchTask));
 task('default', parallel('watch'));
 
 const libTasks = [libTask];
-if (doodoo) {
-	libTask.push(doodoo.exportTask);
-	libTask.push(doodooCopy);
-}
-if (lines) {
-	libTask.push(lines.exportTask);
-	libTask.push(linesCopy);
-}
+if (lines) libTasks.push(lines.exportTask, linesCopy);
+if (doodoo) libTasks.push(doodoo.exportTask, doodooCopy);
 
-console.log(...libTasks)
 task('lib', series(...libTasks));
 task('build', series(...[...libTasks, jsTask]));
