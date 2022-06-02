@@ -89,6 +89,4 @@ task('jsTask', jsTask);
 // task('build', series(lines.exportTask, linesCopy, jsTask));
 task('build', series(doodoo.exportTask, lines.exportTask, doodooCopy, linesCopy, jsTask));
 task('watch', parallel('build', cacheBustTask, browserSyncTask, watchTask));
-task('default', series('watch'));
-
-
+task('default', parallel('watch'));
