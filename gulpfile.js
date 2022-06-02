@@ -1,7 +1,9 @@
 const { src, dest, watch, series, parallel, task } = require('gulp');
 
 const doodoo = process.env.USE_DOODOO ? require('./doodoo/gulpfile') : null;
-const lines = process.env.USE_DOODOO ? require('./lines/gulpfile') : null;
+const lines = process.env.USE_LINES ? require('./lines/gulpfile') : null;
+
+console.log(doodoo, lines);
 
 const replace = require('gulp-replace');
 const sourcemaps = require('gulp-sourcemaps');
