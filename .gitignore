@@ -2,3 +2,6 @@
 node_modules/
 **/*.map
 package-lock.json
+doc/
+build/lib/tone/build/esm/
+web/
