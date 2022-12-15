@@ -40,6 +40,8 @@ gme.load({
 
 
 gme.start = function() {
+	document.getElementById('splash').remove();
+	clearInterval(loadingInterval);
 	gme.scenes.current = 'splash';
 };
 
