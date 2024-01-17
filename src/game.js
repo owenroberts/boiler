@@ -9,6 +9,9 @@ let loadingInterval = setInterval(loadingAnimation, 1000 / 12);
 const isMobile = Cool.mobilecheck();
 if (isMobile) document.body.classList.add('mobile');
 
+const { Game, GameAnim, Scene, Sprite, SpriteCollection, ColliderSprite, ColliderEntity, TextSprite, Texture, UI, Counter, SoundProvider, ColliderEmpty } = LinesEngine;
+const { Drawing, Layer } = Lines;
+
 /* this is the game part */
 const gme = new Game({
 	dps: 24,
@@ -32,10 +35,10 @@ const gme = new Game({
 });
 
 gme.load({ 
-	scenery: 'data/scenery.json',
-	textures: 'data/textures.json',
-	sprites: 'data/sprites.json',
-	ui: 'data/ui.json',
+	// scenery: 'data/scenery.json',
+	// textures: 'data/textures.json',
+	// sprites: 'data/sprites.json',
+	// ui: 'data/ui.json',
 }, false);
 
 
