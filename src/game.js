@@ -1,30 +1,16 @@
-// loading animation pre lines render
-const title = document.getElementById('title');
-function loadingAnimation() {
-	let t = '~' + title.textContent + '~';
-	title.textContent = t;
-}
-let loadingInterval = setInterval(loadingAnimation, 1000 / 12);
+import * as Cool from '../cool/cool.js';
+import { Game, Sprite } from '../lines/src/Engine.js';
 
-const isMobile = Cool.mobilecheck();
-if (isMobile) document.body.classList.add('mobile');
-
-const { Game, GameAnim, Scene, Sprite, SpriteCollection, ColliderSprite, ColliderEntity, TextSprite, Texture, UI, Counter, SoundProvider, ColliderEmpty } = LinesEngine;
-const { Drawing, Layer } = Lines;
-
-/* this is the game part */
 const gme = new Game({
 	dps: 24,
 	lineWidth: 1,
-	zoom: isMobile ? 1 : 1.5,
-	width: window.innerWidth,
-	height: window.innerHeight,
+	width: 960,
+	height: 480,
 	multiColor: true,
 	checkRetina: true,
 	// debug: true,
 	// stats: true,
 	suspend: true,
-	events: isMobile ? ['touch'] : ['keyboard', 'mouse'],
 	scenes: ['game', 'splash', 'loading'],
 	bounds: {
 		left: -1024,
@@ -34,18 +20,12 @@ const gme = new Game({
 	}
 });
 
-gme.load({ 
-	// scenery: 'data/scenery.json',
-	// textures: 'data/textures.json',
-	// sprites: 'data/sprites.json',
-	// ui: 'data/ui.json',
-}, false);
-
+gme.load({ animations: { sprites: './data/sprites.json' }}, false);
 
 gme.start = function() {
-	document.getElementById('splash').remove();
-	clearInterval(loadingInterval);
+	const s = new Sprite(0, 0, gme.anims.sprites.sprite)
 	gme.scenes.current = 'splash';
+	gme.scenes.current.addToDisplay(s);
 };
 
 gme.update = function(timeElapsed) {

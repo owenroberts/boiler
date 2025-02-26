@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "init": "git init && npm i && echo add modules: npm run add-lines, npm run add-doodoo, npm run add-text-tools, npm run add-physics, npm run add-tre",
+    "init": "git init && npm i && echo add modules: npm run add-lines, add-doodoo, add-text-tools, add-physics, add-tre, add-cool, add-ui",
     "add-doodoo": "git submodule add https://github.com/owenroberts/doodoo.git && (cd doodoo && npm i) && npm i --save tone",
     "add-lines": "git submodule add https://github.com/owenroberts/lines.git && (cd lines && npm i) && npm i --save stats.js",
     "add-text-tools": "git submodule add https://github.com/owenroberts/text_tools.git && (cd text_tools && npm i)",
+    "add-cool": "git submodule add https://github.com/owenroberts/cool.git",
+    "add-ui": "git submodule add https://github.com/owenroberts/ui.git",
     "add-physics": "npm i --save matter-js"
   },
   "devDependencies": {

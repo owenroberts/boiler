@@ -11,6 +11,15 @@ canvas {
 	display: block; 
 }
 
+body { 
+	margin: 0; 
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
 #splash {
 	z-index: 1;
 	position: fixed;
