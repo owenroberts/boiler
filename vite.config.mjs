@@ -8,18 +8,18 @@ export default defineConfig({
 	appType: 'mpa',
 	plugins: [
 		vitePluginString(),
-		viteStaticCopy({
-			targets: [
-				{
-					src: 'doodoo/samples/',
-					dest: 'doodoo/',
-				},
-				{
-					src: 'lines/drawings/',
-					dest: 'lines/',
-				},
-			]
-		}),
+		// viteStaticCopy({
+		// 	targets: [
+		// 		{
+		// 			src: 'doodoo/samples/',
+		// 			dest: 'doodoo/',
+		// 		},
+		// 		{
+		// 			src: 'lines/drawings/',
+		// 			dest: 'lines/',
+		// 		},
+		// 	]
+		// }),
 	],
 	build: {
 		rollupOptions: {

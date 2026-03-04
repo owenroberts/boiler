@@ -5,3 +5,10 @@ package-lock.json
 doc/
 build/lib/tone/build/esm/
 web/
+*.gdsheet
+src/doodoo
+src/cool
+src/lines
+src/oi
+src/tre
+src/text_tools

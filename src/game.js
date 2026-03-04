@@ -1,5 +1,5 @@
-import * as Cool from '../cool/cool.js';
-import { Game, Sprite } from '../lines/src/Engine.js';
+import * as Cool from './cool/cool.js';
+import { Game, Sprite } from './lines/src/Engine.js';
 
 const gme = new Game({
 	dps: 24,
