@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "init": "git init && npm i && echo add modules: npm run add-lines, add-doodoo, add-text-tools, add-physics, add-tre, add-cool, add-ui",
     "add-doodoo": "git clone https://github.com/owenroberts/doodoo.git src/doodoo && npm i && npm i --save tone",
-    "add-lines": "git clone https://github.com/owenroberts/lines.git src/lines && npm i && npm i --save stats.js",
+    "add-lines": "git clone https://github.com/owenroberts/lines.git src/lines && npm i && npm i --save stats.js && npm i --save-dev file-saver",
     "add-text-tools": "git clone https://github.com/owenroberts/text_tools.git src/text_tools && npm i",
     "add-cool": "git clone https://github.com/owenroberts/cool.git src/cool",
     "add-oi": "git clone https://github.com/owenroberts/oi.git src/oi",
