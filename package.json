@@ -1,21 +1,26 @@
 {
   "name": "boiler",
   "version": "0.0.1",
-  "description": "boiler plate for my dumb",
+  "description": "project starter",
   "author": "owenribbit",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "init": "git init && npm i && echo add modules: npm run add-lines, add-doodoo, add-text-tools, add-physics, add-tre, add-cool, add-ui",
-    "add-doodoo": "git clone https://github.com/owenroberts/doodoo.git src/doodoo && npm i && npm i --save tone",
-    "add-lines": "git clone https://github.com/owenroberts/lines.git src/lines && npm i && npm i --save stats.js && npm i --save-dev file-saver",
-    "add-text-tools": "git clone https://github.com/owenroberts/text_tools.git src/text_tools && npm i",
-    "add-cool": "git clone https://github.com/owenroberts/cool.git src/cool",
-    "add-oi": "git clone https://github.com/owenroberts/oi.git src/oi",
+    "add-doodoo": "git submodule add https://github.com/owenroberts/doodoo.git b/doodoo && npm i && npm i --save tone",
+    "add-lines": "git submodule add https://github.com/owenroberts/lines.git b/lines && npm i && npm i --save stats.js && npm i --save-dev file-saver",
+    "add-text-tools": "git submodule add https://github.com/owenroberts/text_tools.git b/text_tools && npm i",
+    "add-cool": "git submodule add https://github.com/owenroberts/cool.git b/cool",
+    "add-oi": "git submodule add https://github.com/owenroberts/oi.git b/oi",
     "add-physics": "npm i --save matter-js"
   },
+  "workspaces": [
+    "b/*"
+  ],
   "devDependencies": {
+    "file-saver": "^2.0.5",
+    "sass-embedded": "^1.99.0",
     "vite": "^7.3.1",
     "vite-plugin-static-copy": "^3.2.0",
     "vite-plugin-string": "^1.2.3"

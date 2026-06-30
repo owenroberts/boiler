@@ -4,22 +4,19 @@ import vitePluginString from 'vite-plugin-string';
 import { resolve } from 'path';
 
 export default defineConfig({
-	server: { port: 8888 },
+	css: { devSourcemap: true, },
+	server: { port: 8888 }, // change port for unique localStorage
 	appType: 'mpa',
 	plugins: [
 		vitePluginString(),
-		// viteStaticCopy({
-		// 	targets: [
-		// 		{
-		// 			src: 'doodoo/samples/',
-		// 			dest: 'doodoo/',
-		// 		},
-		// 		{
-		// 			src: 'lines/drawings/',
-		// 			dest: 'lines/',
-		// 		},
-		// 	]
-		// }),
+		viteStaticCopy({
+			targets: [
+				{
+					src: 'doodoo/samples/',
+					dest: 'doodoo/',
+				},
+			]
+		}),
 	],
 	build: {
 		rollupOptions: {
